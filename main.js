@@ -44,7 +44,7 @@ function mostrarResultados() {
 	total = 0;
 	productos.forEach((producto) => {
 		if (producto.cantidad > 0 && producto.seleccionado === true) {
-			resultado.push(`${producto.nombre}: \n Precio: $${producto.precio} | Cantidad: ${producto.cantidad}\n El total es: $${(producto.cantidad * producto.precio)}`);
+			resultado.push(`\n${producto.nombre}: \n Precio: $${producto.precio} | Cantidad: ${producto.cantidad}\n El total es: $${(producto.cantidad * producto.precio)}`);
 			total += producto.cantidad * producto.precio;
 		}
 	});
@@ -64,12 +64,13 @@ function mensajeRepetirProceso() {
 		mensajeSeleccionProducto();
 	} else if (mensaje == "2" || mensaje == "dos") {
 		mostrarResultados();
+	} else {
+		mensajeRepetirProceso();
 	}
 }
 
 // Mensaje, proceso de validación y asignación de la cantidad del producto seleccionado anteriormente.
 function mensajeCantidadProducto(producto, fallo = false, editar = false) {
-	// debugger;
 	let mensajeCantidad = "";
 
 	if (fallo === false && editar === false) {
